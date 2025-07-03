@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: color-api-deployment
+  labels:
+    app: color-api
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: color-api
+  template:
+    metadata:
+      labels:
+        app: color-api
+    spec:
+      container:
+        - name: color-api
+          image: vinispeed/color-api:1.1.0
