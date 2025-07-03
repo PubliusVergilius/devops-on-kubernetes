@@ -23,4 +23,4 @@ COPY --from=builder /app/myapi /myapi
 USER nonroot:nonroot
 
 # Run the app
-ENTRYPOINT ["/myapi"]
+ENTRYPOINT ["API_PORT=8080 /myapi"]

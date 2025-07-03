@@ -14,6 +14,8 @@ spec:
       labels:
         app: color-api
     spec:
-      container:
+      containers:
         - name: color-api
           image: vinispeed/color-api:1.1.0
+          ports:
+            - containerPort: 80

@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: mxp4x-ykfhe
+created: 2025-06-28T22:56:44-03:00
