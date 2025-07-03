@@ -3,6 +3,9 @@ FROM golang:1.24.4-alpine3.22 as builder
 # Install git for go modules (if needed)
 RUN apk add --no-cache git 
 
+# Running app port
+ENV API_PORT=8080 
+
 WORKDIR /app
 
 COPY go.mod go.sum ./
@@ -23,4 +26,4 @@ COPY --from=builder /app/myapi /myapi
 USER nonroot:nonroot
 
 # Run the app
-ENTRYPOINT ["API_PORT=8080 /myapi"]
+ENTRYPOINT ["./myapi"]
