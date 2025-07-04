@@ -1,15 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: color-api-clusterip
+  name: color-api-nodeport
   labels:
     app: color-api
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: color-api
   ports:
     - port: 80
       targetPort: 8080
+      nodePort: 30007
 
 
