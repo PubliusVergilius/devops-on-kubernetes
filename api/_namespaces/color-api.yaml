@@ -9,6 +9,13 @@ spec:
   containers:
     - name: color-backend
       image: vinispeed/color-api:1.1.2
+      resources:
+        requests:
+          cpu: '200m'
+          memory: '256Mi'
+        limits:
+          cpu: '500m'
+          memory: '512Mi'
       ports:
         - containerPort: 8080
 ---
