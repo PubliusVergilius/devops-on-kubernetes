@@ -8,7 +8,8 @@ metadata:
 spec:
   replicas: 4
   selector:
-    app: color-api
+    matchLabels:
+      app: color-api
   template:
     metadata:
       labels:
