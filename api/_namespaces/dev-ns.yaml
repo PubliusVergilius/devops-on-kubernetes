@@ -10,7 +10,7 @@ metadata:
   name: dev-quota
 spec:
   hard:
-    requests.cpu: '500m'
+    requests.cpu: '1000m'
     requests.memory: '1Gi'
     limits.cpu: '1'
     limits.memory: '2Gi'
