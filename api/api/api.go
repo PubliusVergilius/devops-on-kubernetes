@@ -40,16 +40,25 @@ func Router (port string, probes Probes) {
 
 	router.GET("/ready", func (ctx *gin.Context) {
 		if (probes.Readiness) {
-			ctx.AbortWithStatus(503)
+			ctx.AbortWithStatus(http.StatusServiceUnavailable)
+		} else {
+			ctx.Status(http.StatusOK)
 		}
+	})
+
+	router.GET("/up", func (ctx *gin.Context) {
+		ctx.Status(http.StatusOK)
 	})
 
 	router.GET("/healthy", func (ctx *gin.Context) {
 		if (probes.Liveness) {
-			ctx.AbortWithStatus(503)
+			ctx.AbortWithStatus(http.StatusServiceUnavailable)
+		} else {
+			ctx.Status(http.StatusOK)
 		}
 
 	})
 
-	router.Run(fmt.Sprintf(":%s", port))}
+	router.Run(fmt.Sprintf(":%s", port))
+}
 

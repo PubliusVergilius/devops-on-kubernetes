@@ -7,10 +7,10 @@ metadata:
 spec:
   containers:
     - name: color-api-pod
-      image: vinispeed/color-api:1.2.0
+      image: vinispeed/color-api:1.2.1
       env:
         - name: API_PORT
-          value: 8080
+          value: '8080'
         - name: DELAY_STARTUP
           value: "true"
         - name: FAIL_LIVENESS 
@@ -22,12 +22,12 @@ spec:
       resources:
         limits:
           cpu: '500m'
-          memory: '512m'
-        startupProbe:
-          httpGet:
-            path: /health
-            port: 8080
-          failureThreshold: 2
-          periodSeconds: 3
+          memory: '512Mi'
+      startupProbe:
+        httpGet:
+          path: /health
+          port: 8080
+        failureThreshold: 2
+        periodSeconds: 3
 
 

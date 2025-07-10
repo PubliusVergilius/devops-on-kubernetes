@@ -33,7 +33,11 @@ func main() {
 	    log.Fatalf("Conversion error or invalid port number: %q", err)
     }
 
-    p := api.Probes{delay_startup, fail_liveness, fail_readiness}
+    p := api.Probes{
+	    Delay: delay_startup, 
+	    Liveness: fail_liveness, 
+	    Readiness: fail_readiness,
+    }
 
     if delay_startup {
 	    time.Sleep(60 * time.Second)
