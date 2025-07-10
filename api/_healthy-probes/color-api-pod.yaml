@@ -25,9 +25,15 @@ spec:
           memory: '512Mi'
       startupProbe:
         httpGet:
-          path: /health
+          path: /up
           port: 8080
         failureThreshold: 2
         periodSeconds: 3
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: 8080
+        failureThreshold: 3
+        periodSeconds: 10
 
 
