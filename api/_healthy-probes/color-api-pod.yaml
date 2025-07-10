@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: color-api-pod
+  labels: 
+    name: color-api-pod
+spec:
+  containers:
+    - name: color-api-pod
+      image: vinispeed/color-api:1.2.0
+      env:
+        - name: API_PORT
+          value: 8080
+        - name: DELAY_STARTUP
+          value: "true"
+        - name: FAIL_LIVENESS 
+          value: "true"
+        - name: FAIL_READINESS
+          value: "true" 
+      ports:
+        - containerPort: 8080
+      resources:
+        limits:
+          cpu: '500m'
+          memory: '512m'
+        startupProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          failureThreshold: 2
+          periodSeconds: 3
+
+

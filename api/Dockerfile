@@ -5,6 +5,9 @@ RUN apk add --no-cache git
 
 # Running app port
 ENV API_PORT=8080 
+ENV DELAY_STARTUP="true"
+ENV FAIL_LIVENESS="true"
+ENV FAIL_READINESS="true" 
 
 WORKDIR /app
 
