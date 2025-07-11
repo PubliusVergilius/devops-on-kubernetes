@@ -26,7 +26,7 @@ metadata:
   name: local-volume-claim
 spec:
   resources:
-    request:
+    requests:
       storage: 500Mi
   volumeMode: Filesystem
   accessModes:
