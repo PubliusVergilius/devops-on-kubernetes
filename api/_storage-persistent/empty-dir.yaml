@@ -19,7 +19,6 @@ spec:
       volumeMounts:
         - name: temp-storage
           mountPath: /usr/share/temp
-  containers:
     - name: empty-dir-reader
       image: busybox:1.36.1
       command:
