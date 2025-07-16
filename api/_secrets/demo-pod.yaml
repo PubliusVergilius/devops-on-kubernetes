@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-pod
+spec:
+  containers:
+    - name: busybox
+      image: busybox:1.36.1
+      command:
+        - 'sh'
+        - '-c'
+        - 'echo "$DB_USERNAME" && echo "$DB_PASSWORD" && sleep 1800'
+      env:
+        - name: DB_USERAME
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: db-creds
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: db-creds

@@ -8,6 +8,9 @@ spec:
   containers:
     - name: color-api
       valueFrom:
+        # Não recomendado: melhor definir as variáveis uma a uma
+        # porque de um release para outros podem estar usando
+        # muitas iguais e outras não
         - configMapRef:
             name: api-config
   image: vinispeed/color-api:1.2.1
