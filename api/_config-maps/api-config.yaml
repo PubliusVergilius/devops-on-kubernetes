@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-config
+data:
+  mongo-config.js: |
+    console.log("Use this peace of shit to configure your mongodb")!
+  API_PORT: 8085
+  DELAY_STARTUP: "false"
+  FAIL_LIVENESS: "true"
+  FAIL_READINESS: "true"

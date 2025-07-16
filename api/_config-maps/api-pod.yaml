@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: color-api
+  labels:
+    app: color-api
+spec:
+  containers:
+    - name: color-api
+      valueFrom:
+        - configMapRef:
+            name: api-config
+  image: vinispeed/color-api:1.2.1
+  env: 
+  resources:
+    limits:
+      memory: '128Mi'
+      cpu: '500m'
+  ports:
+    - containerPort: 80
