@@ -1,6 +1,7 @@
 package api
 
 import (
+	"api/config"
 	"fmt"
 	"log"
 	"net/http"
@@ -11,6 +12,7 @@ import (
 
 func init () {
 	log.Printf("Starting new Gin server...")
+	config.Connect("color_db")
 }
 
 type Probes struct {

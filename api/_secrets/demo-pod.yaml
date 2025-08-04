@@ -1,3 +1,5 @@
+# The secrets are actually being passed by the command
+# "kubectl create secret generic --from-literal="
 apiVersion: v1
 kind: Pod
 metadata:
